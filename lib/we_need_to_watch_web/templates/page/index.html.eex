@@ -1,0 +1,7 @@
+<div class="titleList">
+  <%= for title <- @titles do %>
+    <div class="title"><%= link title.title, to: page_path(@conn, :show, title) %></div>
+  <% end %>
+</div>
+
+<div class="title"><%= link "New Title", to: page_path(@conn, :new), class: "btn btn-default" %></div>
