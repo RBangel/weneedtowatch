@@ -23,6 +23,7 @@ defmodule Mix.Tasks.Compose do
   def compose(["release", env]) do
     System.put_env("MIX_ENV", env)
     Mix.shell.cmd "mix compile"
+    Mix.shell.cmd "mix phx.digest"
     Mix.shell.cmd "mix release"
     Mix.shell.cmd "mix compose build"
   end
