@@ -17,7 +17,8 @@ defmodule Mix.Tasks.Compose do
   end
 
   def compose(["down"]) do
-    Mix.shell.cmd("docker-compose down")
+    version = Keyword.fetch!(Mix.Project.config, :version)
+    Mix.shell.cmd("VERSION=#{version} docker-compose down")
   end
 
   def compose(["release", env]) do
