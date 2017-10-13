@@ -21,7 +21,7 @@ defmodule WeNeedToWatchWeb.PageController do
 
   def create(conn, %{"title" => title_params}) do
     case Movies.create_title(title_params) do
-      {:ok, title} ->
+      {:ok, _title} ->
         conn
         |> put_flash(:info, "Title created successfully.")
         |> redirect(to: page_path(conn, :index))
