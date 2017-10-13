@@ -20,7 +20,6 @@ defmodule WeNeedToWatchWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/new", PageController, :new
     get "/:id", PageController, :show
     post "/", PageController, :create
     delete "/:id", PageController, :delete

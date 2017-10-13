@@ -4,4 +4,4 @@
   <% end %>
 </div>
 
-<div class="title"><%= link "New Title", to: page_path(@conn, :new), class: "btn btn-default" %></div>
+<%= render "form.html", Map.put(assigns, :action, page_path(@conn, :create)) %>

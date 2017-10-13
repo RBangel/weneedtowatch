@@ -6,7 +6,8 @@ defmodule WeNeedToWatchWeb.PageController do
 
   def index(conn, _params) do
     titles = Movies.list_titles(sorted: true)
-    render(conn, "index.html", titles: titles)
+    changeset = Movies.change_title(%Title{})
+    render(conn, "index.html", titles: titles, changeset: changeset)
   end
 
   def show(conn, %{"id" => id}) do
