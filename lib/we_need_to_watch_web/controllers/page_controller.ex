@@ -36,7 +36,7 @@ defmodule WeNeedToWatchWeb.PageController do
     {:ok, _title} = Movies.delete_title(title)
 
     conn
-    |> put_flash(:info, "Title deleted successfully.")
+    |> put_flash(:info, "Title removed from watch list.")
     |> redirect(to: page_path(conn, :index))
   end
 end

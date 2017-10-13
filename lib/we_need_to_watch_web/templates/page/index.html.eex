@@ -1,7 +1,22 @@
 <div class="titleList">
-  <%= for title <- @titles do %>
-    <div class="title"><%= link title.title, to: page_path(@conn, :show, title) %></div>
-  <% end %>
+  <ul>
+    <table class="table">
+      <thead>
+        <th colspan=2>Title</th>
+      </thead>
+      <tbody>
+    <%= for title <- @titles do %>
+      <tr>
+        <td class="title"><%= link title.title, to: page_path(@conn, :show, title) %></td>
+        <td>
+          <%= link to: page_path(@conn, :delete, title), method: :delete, data: [confirm: "Mark as watched?"] do %>
+            <span class="title glyphicon glyphicon-eye-open"></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+      <tbody>
+    </table>
 </div>
 
 <%= render "form.html", Map.put(assigns, :action, page_path(@conn, :create)) %>
