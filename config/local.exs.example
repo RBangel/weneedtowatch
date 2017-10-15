@@ -1,0 +1,8 @@
+use Mix.Config
+
+config :we_need_to_watch, WeNeedToWatch.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "user",
+  password: "password",
+  hostname: "localhost"
+
