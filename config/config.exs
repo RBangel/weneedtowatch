@@ -29,3 +29,6 @@ config :we_need_to_watch, :basic_auth,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+# Override with local configuration (gitignored)
+import_config "local.exs"
