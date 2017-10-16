@@ -1,5 +1,5 @@
-<div class="title"><%= @title.title %></div>
+<div class="movie"><%= @movie.title %></div>
 <div class="navbar">
   <span><%= link "Back", to: page_path(@conn, :index) %></span>
-  <span><%= link "Delete", to: page_path(@conn, :delete, @title), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+  <span><%= link "Delete", to: page_path(@conn, :delete, @movie), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
 </div>

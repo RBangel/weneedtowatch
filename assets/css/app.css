@@ -7,12 +7,12 @@
   font-size: 3.5em;
 }
 
-.titleList {
+.movieList {
   display: flex;
   flex-wrap: wrap;
 }
 
-.title {
+.movie {
   text-align: left;
   padding-top: 0.75em;
   padding-left: 1em;
@@ -20,7 +20,7 @@
   font-size: 1.75em;
 }
 
-.title a {
+.movie a {
   color: black;
 }
 

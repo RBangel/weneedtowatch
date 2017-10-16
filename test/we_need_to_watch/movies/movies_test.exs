@@ -4,7 +4,7 @@ defmodule WeNeedToWatch.MoviesTest do
   alias WeNeedToWatch.Movies
 
   describe "titles" do
-    alias WeNeedToWatch.Movies.Title
+    alias WeNeedToWatch.Movies.Movie
 
     @valid_attrs %{title: "some title"}
     @update_attrs %{title: "some updated title"}

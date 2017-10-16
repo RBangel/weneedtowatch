@@ -6,9 +6,9 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :title, class: "control-label" %>
-    <%= text_input f, :title, class: "form-control" %>
-    <%= error_tag f, :title %>
+    <%= label f, :movie, class: "control-label" %>
+    <%= text_input f, :movie, class: "form-control" %>
+    <%= error_tag f, :movie %>
   </div>
 
   <div class="form-group">

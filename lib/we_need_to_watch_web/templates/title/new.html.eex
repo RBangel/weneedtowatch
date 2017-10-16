@@ -1,5 +1,0 @@
-<h2>New Title</h2>
-
-<%= render "form.html", Map.put(assigns, :action, title_path(@conn, :create)) %>
-
-<span><%= link "Back", to: title_path(@conn, :index) %></span>

@@ -1,18 +1,18 @@
-defmodule WeNeedToWatch.Movies.Title do
+defmodule WeNeedToWatch.Movies.Movie do
   use Ecto.Schema
   import Ecto.Changeset
-  alias WeNeedToWatch.Movies.Title
+  alias WeNeedToWatch.Movies.Movie
 
 
-  schema "titles" do
+  schema "movies" do
     field :title, :string
 
     timestamps()
   end
 
   @doc false
-  def changeset(%Title{} = title, attrs) do
-    title
+  def changeset(%Movie{} = movie, attrs) do
+    movie
     |> cast(attrs, [:title])
     |> validate_required([:title])
     |> unique_constraint(:title)

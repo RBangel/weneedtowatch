@@ -6,105 +6,105 @@ defmodule WeNeedToWatch.Movies do
   import Ecto.Query, warn: false
   alias WeNeedToWatch.Repo
 
-  alias WeNeedToWatch.Movies.Title
+  alias WeNeedToWatch.Movies.Movie
 
   @doc """
-  Returns the list of titles.
+  Returns the list of movies.
 
   ## Examples
 
-      iex> list_titles()
-      [%Title{}, ...]
+      iex> list_movies()
+      [%Movie{}, ...]
 
   """
-  def list_titles do
-    Repo.all(Title)
+  def list_movies do
+    Repo.all(Movie)
   end
 
-  def list_titles(sorted: true) do
-    query = from(t in Title, order_by: t.title)
+  def list_movies(sorted: true) do
+    query = from(t in Movie, order_by: t.title)
     Repo.all(query)
   end
-  def list_titles(:_sorted), do: list_titles()
+  def list_movies(:_sorted), do: list_movies()
 
   @doc """
-  Gets a single title.
+  Gets a single movie.
 
-  Raises `Ecto.NoResultsError` if the Title does not exist.
+  Raises `Ecto.NoResultsError` if the Movie does not exist.
 
   ## Examples
 
-      iex> get_title!(123)
-      %Title{}
+      iex> get_movie!(123)
+      %Movie{}
 
-      iex> get_title!(456)
+      iex> get_movie!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_title!(id), do: Repo.get!(Title, id)
+  def get_movie!(id), do: Repo.get!(Movie, id)
 
   @doc """
-  Creates a title.
+  Creates a movie.
 
   ## Examples
 
-      iex> create_title(%{field: value})
-      {:ok, %Title{}}
+      iex> create_movie(%{field: value})
+      {:ok, %Movie{}}
 
-      iex> create_title(%{field: bad_value})
+      iex> create_movie(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_title(attrs \\ %{}) do
-    %Title{}
-    |> Title.changeset(attrs)
+  def create_movie(attrs \\ %{}) do
+    %Movie{}
+    |> Movie.changeset(attrs)
     |> Repo.insert()
   end
 
   @doc """
-  Updates a title.
+  Updates a movie.
 
   ## Examples
 
-      iex> update_title(title, %{field: new_value})
-      {:ok, %Title{}}
+      iex> update_movie(movie, %{field: new_value})
+      {:ok, %Movie{}}
 
-      iex> update_title(title, %{field: bad_value})
+      iex> update_movie(movie, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_title(%Title{} = title, attrs) do
-    title
-    |> Title.changeset(attrs)
+  def update_movie(%Movie{} = movie, attrs) do
+    movie
+    |> Movie.changeset(attrs)
     |> Repo.update()
   end
 
   @doc """
-  Deletes a Title.
+  Deletes a Movie.
 
   ## Examples
 
-      iex> delete_title(title)
-      {:ok, %Title{}}
+      iex> delete_movie(movie)
+      {:ok, %Movie{}}
 
-      iex> delete_title(title)
+      iex> delete_movie(movie)
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_title(%Title{} = title) do
-    Repo.delete(title)
+  def delete_movie(%Movie{} = movie) do
+    Repo.delete(movie)
   end
 
   @doc """
-  Returns an `%Ecto.Changeset{}` for tracking title changes.
+  Returns an `%Ecto.Changeset{}` for tracking movie changes.
 
   ## Examples
 
-      iex> change_title(title)
-      %Ecto.Changeset{source: %Title{}}
+      iex> change_movie(movie)
+      %Ecto.Changeset{source: %Movie{}}
 
   """
-  def change_title(%Title{} = title) do
-    Title.changeset(title, %{})
+  def change_movie(%Movie{} = movie) do
+    Movie.changeset(movie, %{})
   end
 end

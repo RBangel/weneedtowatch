@@ -2,28 +2,28 @@ defmodule WeNeedToWatchWeb.PageController do
   use WeNeedToWatchWeb, :controller
 
   alias WeNeedToWatch.Movies
-  alias WeNeedToWatch.Movies.Title
+  alias WeNeedToWatch.Movies.Movie
 
   def index(conn, _params) do
-    titles = Movies.list_titles(sorted: true)
-    render(conn, "index.html", titles: titles)
+    movies = Movies.list_movies(sorted: true)
+    render(conn, "index.html", movies: movies)
   end
 
   def show(conn, %{"id" => id}) do
-    title = Movies.get_title!(id)
-    render(conn, "show.html", title: title)
+    movie = Movies.get_movie!(id)
+    render(conn, "show.html", movie: movie)
   end
 
   def new(conn, _params) do
-    changeset = Movies.change_title(%Title{})
+    changeset = Movies.change_movie(%Movie{})
     render(conn, "new.html", changeset: changeset)
   end
 
-  def create(conn, %{"title" => title_params}) do
-    case Movies.create_title(title_params) do
-      {:ok, title} ->
+  def create(conn, %{"movie" => movie_params}) do
+    case Movies.create_movie(movie_params) do
+      {:ok, movie} ->
         conn
-        |> put_flash(:info, "Title created successfully.")
+        |> put_flash(:info, "Movie created successfully.")
         |> redirect(to: page_path(conn, :index))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -31,11 +31,11 @@ defmodule WeNeedToWatchWeb.PageController do
   end
 
   def delete(conn, %{"id" => id}) do
-    title = Movies.get_title!(id)
-    {:ok, _title} = Movies.delete_title(title)
+    movie = Movies.get_movie!(id)
+    {:ok, _movie} = Movies.delete_movie(movie)
 
     conn
-    |> put_flash(:info, "Title deleted successfully.")
+    |> put_flash(:info, "Movie deleted successfully.")
     |> redirect(to: page_path(conn, :index))
   end
 end

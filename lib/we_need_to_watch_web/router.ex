@@ -26,7 +26,7 @@ defmodule WeNeedToWatchWeb.Router do
     delete "/:id", PageController, :delete
 
     get "/katyandraelyn", KatyAndRaelyn, :index
-    resources "/titles", TitleController
+    resources "/movies", MovieController
   end
 
   # Other scopes may use custom stacks.
