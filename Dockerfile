@@ -37,16 +37,16 @@ ENV MIX_ENV=prod
 ENV PORT=8888
 WORKDIR $APP
 
-# RUN apt-get update && \
-#     apt-get install -y libssl1.0.0 postgresql-client && \
-#     apt-get autoclean
-
 COPY --from=asset-builder $APP/priv/static/ $APP/priv/static/
 
 RUN mix do local.hex --force, local.rebar --force
 
 COPY config/ $APP/config/
 COPY mix.exs mix.lock $APP/
+
+RUN apt-get update && \
+    apt-get install -y libssl1.0.0 postgresql-client && \
+    apt-get autoclean
 
 RUN mix do deps.get --only $MIX_ENV, deps.compile
 

@@ -10,7 +10,7 @@ services:
       - "8888:8888"
     depends_on:
      - postgres
-    # entrypoint: ./wait-for-postgres.sh postgres /app/bin/we_need_to_watch foreground
+    entrypoint: ./wait-for-postgres.sh postgres mix phx.server
 
   postgres:
     image: postgres

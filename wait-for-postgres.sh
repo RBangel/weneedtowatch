@@ -11,6 +11,12 @@ until psql -h "$host" -U "postgres" -c '\l'; do
     sleep 1
 done
 
->&2 echo "cmd arg: ${cmd}"
->&2 echo "Postgres is up - entering app"
-exec $cmd
+if [ $? -eq 0 ]; then
+    >&2 echo "cmd arg: ${cmd}"
+
+    >&2 echo "Postgres is up - setting up the database"
+    mix ecto.setup
+
+    >&2 echo "Entering app"
+    exec $cmd
+fi
