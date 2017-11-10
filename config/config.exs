@@ -31,4 +31,4 @@ config :we_need_to_watch, :basic_auth,
 import_config "#{Mix.env}.exs"
 
 # Override with local configuration (gitignored)
-import_config "local.exs"
+if File.exists?("./config/local.exs"), do: import_config "local.exs"
