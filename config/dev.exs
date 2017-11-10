@@ -51,7 +51,7 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :we_need_to_watch, WeNeedToWatch.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "raelyn",
+  username: "postgres",
   database: "we_need_to_watch_dev",
   hostname: "localhost",
   pool_size: 10
